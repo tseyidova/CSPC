@@ -27,3 +27,19 @@ conda activate cspc
 **Conclusion:**
 
 - The NumPy vectorised version is dramatically faster than the pure-Python loop because it processes all atoms at once instead of looping over each one individually. All three tests pass, confirming the simulation correctly rejects negative decay rates and matches the theoretical decay law on average.
+
+---
+
+## PW1 - Lab B: Data, Plotting, and Automation
+
+**What the data showed:**
+
+- The observed decay data (decay_observed.csv) shows the atom count dropping from 5000 at t=0 down toward near-zero by t=20, following the expected shape of radioactive decay.
+
+**Did it match the analytical law?**
+
+- Yes, comparing the two panels of figure.png, the observed scatter points closely follow the same shape as the analytical curve N0*exp(-lam*t), confirming the data is consistent with the decay law (lambda = 0.3).
+
+**Snakemake pipeline:**
+
+- The Snakefile defines one rule that regenerates figure.png from decay_observed.csv by running plot_STUDENT.py, and Snakemake only reruns it when the input file is newer than the output, avoiding unnecessary recomputation.
