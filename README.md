@@ -43,3 +43,25 @@ conda activate cspc
 **Snakemake pipeline:**
 
 - The Snakefile defines one rule that regenerates figure.png from decay_observed.csv by running plot_STUDENT.py, and Snakemake only reruns it when the input file is newer than the output, avoiding unnecessary recomputation.
+
+---
+
+## PW2 - Lab B: Optimization in Chemistry
+
+**How the three methods compared:**
+
+- On f(x) = (x-3)^2 + 1, gradient descent, Newton and SLSQP all gave x = 3.
+- On g(x) = x^4 - 3x^2 + x + 5, the results depended on the start. From x0=0, Newton landed on x = 0.17, where g'' < 0, so it is a maximum. From x0=2, gradient descent and Newton stopped at the local minimum x = 1.13, while SLSQP reached the lowest point x = -1.30.
+- So the methods only agree on the easy problem. On the harder one, the starting point and the method both change the answer.
+
+**Fitted rate constant:**
+
+- The fit gave k = 0.262, close to the expected 0.25. The difference comes from noise in the data.
+
+**Equilibrium composition:**
+
+- Newton and SLSQP agree: x = 0.664, giving H2 = I2 = 0.336 mol and HI = 1.328 mol.
+
+**Titration equivalence point:**
+
+- The pH curve is steepest at 50.0 mL, so that is the equivalence point.
